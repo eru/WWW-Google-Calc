@@ -1,11 +1,14 @@
 package WWW::Google::Calc;
 use strict;
 use warnings;
+use base qw/Class::Accessor::Fast/;
 use WWW::Mechanize;
 use Web::Scraper;
 use URI;
 
-our $VERSION = '1.0.0';
+our $VERSION = '1.0.1';
+
+__PACKAGE__->mk_accessors(qw/mech error/);
 
 sub new {
 	my $self = shift->SUPER::new(@_);

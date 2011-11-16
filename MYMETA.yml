@@ -21,4 +21,4 @@ no_index:
 requires: {}
 resources:
   license: http://dev.perl.org/licenses/
-version: 1.0.2
+version: 1.0.3

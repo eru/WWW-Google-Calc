@@ -11,5 +11,5 @@ print encode('utf-8', $cal->calc('3フィートをメートルで')) . "\n";
 if($cal->calc("not numerical expression")) {
 	print "true\n";
 } else {
-	print "false";
+	print "false\n";
 }

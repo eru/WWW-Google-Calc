@@ -6,12 +6,14 @@ use WWW::Mechanize;
 use Web::Scraper;
 use URI;
 
-our $VERSION = '1.0.1';
+our $VERSION = '1.0.3';
 
 __PACKAGE__->mk_accessors(qw/mech error/);
 
 sub new {
-	my $self = shift->SUPER::new(@_);
+	my ($class, %args) = @_;
+	my $self = $class->SUPER::new( {lang => 'en', %args} );
+	bless $self, $class;
 
 	$self->mech(
 		do {
@@ -25,11 +27,11 @@ sub new {
 }
 
 sub calc {
-	my ( $self, $query ) = @_;
+	my ($self, $query) = @_;
 
 	my $url = URI->new('http://www.google.co.jp/search');
 	$url->query_form(q => $query,
-					 hl => 'ja');
+					 hl => $self->{lang});
 
 	$self->mech->get($url);
 	if($self->mech->success) {
@@ -68,6 +70,7 @@ WWW::Google::Calc -
   use WWW::Google::Calc;
 
   $calc = WWW::Google::Calc->new();
+# $calc = WWW::Google::Calc->new(lang => 'ja');
 
   print $calc->calc('$100 in yen');
   print $calc->calc('100 / 3');

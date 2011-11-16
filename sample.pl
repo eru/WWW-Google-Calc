@@ -7,3 +7,9 @@ my $cal = WWW::Google::Calc->new(lang => 'ja');
 
 print encode('utf-8', $cal->calc('$100 in yen')) . "\n";
 print encode('utf-8', $cal->calc('3フィートをメートルで')) . "\n";
+
+if($cal->calc("not numerical expression")) {
+	print "true\n";
+} else {
+	print "false";
+}

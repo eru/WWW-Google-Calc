@@ -32,7 +32,11 @@
          }
       },
       "runtime" : {
-         "requires" : {}
+         "requires" : {
+            "URI" : 0,
+            "WWW::Mechanize" : 0,
+            "Web::Scraper" : 0
+         }
       }
    },
    "release_status" : "stable",

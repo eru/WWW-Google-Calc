@@ -18,7 +18,10 @@ no_index:
     - inc
     - t
     - xt
-requires: {}
+requires:
+  URI: 0
+  WWW::Mechanize: 0
+  Web::Scraper: 0
 resources:
   license: http://dev.perl.org/licenses/
 version: 1.0.3

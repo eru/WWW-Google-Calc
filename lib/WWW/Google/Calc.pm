@@ -43,19 +43,18 @@ sub calc {
 }
 
 sub parse_html {
-	my ( $self, $html ) = @_;
+	my ($self, $html) = @_;
 
 	my $scraper = scraper {
 		process '#topstuff table.std h2 b', result => 'TEXT'
 	};
 	my $result = $scraper->scrape($html);
 
-	my $res;
 	if($result->{result}) {
-		$res = $result->{result};
+		return $result->{result};
+	} else {
+		return ;
 	}
-
-	$res;
 }
 
 1;
